@@ -24,6 +24,12 @@ export function subscribeToBusData(callback: (data: BusData) => void) {
       const capacidad = Number(estadoData.capacidad ?? 0);
       const cantidad = Number(estadoData.cantidad ?? 0);
 
+      const entradasDetectadas = Number(
+        estadoData.entradas_detectadas ?? cantidad,
+      );
+
+      const salidasDetectadas = Number(estadoData.salidas_detectadas ?? 0);
+
       const busData: BusData = {
         busId: estadoData.codigo_bus || "BUS-01",
         routeName: estadoData.ruta || "Ruta desconocida",
@@ -31,8 +37,8 @@ export function subscribeToBusData(callback: (data: BusData) => void) {
         longitude: Number(estadoData.longitud ?? 0),
         currentPassengers: cantidad,
         capacity: capacidad,
-        entries: cantidad,
-        exits: 0,
+        entries: entradasDetectadas,
+        exits: salidasDetectadas,
         lastUpdate: estadoData.fecha_hora || new Date().toLocaleString(),
         stops: Array.isArray(rutaData.paradas)
           ? rutaData.paradas.map((p: any) => p.nombre)
