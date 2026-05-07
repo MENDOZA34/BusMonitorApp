@@ -1,6 +1,6 @@
 import { BusData } from "../types/bus";
 
-const BASE_URL = "http://192.168.0.101:3000";
+const BASE_URL = "https://bus-api-production.up.railway.app";
 
 export function subscribeToBusData(callback: (data: BusData) => void) {
   let activo = true;
