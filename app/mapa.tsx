@@ -59,19 +59,17 @@ export default function MapaScreen() {
       <View style={styles.header}>
         <Ionicons name="map-outline" size={46} color="#ffffff" />
         <Text style={styles.headerTitle}>Ubicación del bus</Text>
-        <Text style={styles.headerSubtitle}>
-          Monitoreo de la posición enviada por el ESP32
-        </Text>
+        <Text style={styles.headerSubtitle}>Monitoreo de la posición</Text>
       </View>
 
       <View style={styles.infoBox}>
         <View style={styles.row}>
-          <Ionicons name="bus-outline" size={22} color="#2563eb" />
+          <Ionicons name="bus-outline" size={22} color="#56eb25" />
           <Text style={styles.infoText}>ID del bus: {busData.busId}</Text>
         </View>
 
         <View style={styles.row}>
-          <Ionicons name="navigate-outline" size={22} color="#2563eb" />
+          <Ionicons name="navigate-outline" size={22} color="#25d1eb" />
           <Text style={styles.infoText}>Ruta: {busData.routeName}</Text>
         </View>
 
@@ -79,7 +77,7 @@ export default function MapaScreen() {
           <MaterialCommunityIcons
             name="account-group-outline"
             size={22}
-            color="#2563eb"
+            color="#cd25eb"
           />
           <Text style={styles.infoText}>
             Pasajeros actuales: {busData.currentPassengers}
@@ -87,7 +85,7 @@ export default function MapaScreen() {
         </View>
 
         <View style={styles.row}>
-          <Ionicons name="location-outline" size={22} color="#2563eb" />
+          <Ionicons name="location-outline" size={22} color="#eb6725" />
           <Text style={styles.infoText}>
             Coordenadas: {latitude.toFixed(5)}, {longitude.toFixed(5)}
           </Text>

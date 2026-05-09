@@ -47,7 +47,7 @@ export default function HomeScreen() {
           Sistema Inteligente de Monitoreo de Buses
         </Text>
         <Text style={styles.subtitle}>
-          Monitoreo en tiempo real de pasajeros, rutas y ubicación
+          Monitoreo de pasajeros, rutas y ubicación
         </Text>
       </View>
 
@@ -56,7 +56,7 @@ export default function HomeScreen() {
           <MaterialCommunityIcons
             name="card-account-details-outline"
             size={20}
-            color="#2563eb"
+            color="#25caeb"
           />
           <Text style={styles.infoText}>ID del bus: {busData.busId}</Text>
         </View>
@@ -70,7 +70,7 @@ export default function HomeScreen() {
           <MaterialCommunityIcons
             name="account-group-outline"
             size={20}
-            color="#2563eb"
+            color="#25eb67"
           />
           <Text style={styles.infoText}>
             Pasajeros actuales: {busData.currentPassengers}
@@ -78,7 +78,7 @@ export default function HomeScreen() {
         </View>
 
         <View style={styles.infoRow}>
-          <MaterialCommunityIcons name="bus-school" size={20} color="#2563eb" />
+          <MaterialCommunityIcons name="bus-school" size={20} color="#ebb025" />
           <Text style={styles.infoText}>Capacidad: {busData.capacity}</Text>
         </View>
 
@@ -86,7 +86,7 @@ export default function HomeScreen() {
           <MaterialCommunityIcons
             name="seat-passenger"
             size={20}
-            color="#2563eb"
+            color="#eb2585"
           />
           <Text style={styles.infoText}>
             Espacios disponibles: {availableSeats}

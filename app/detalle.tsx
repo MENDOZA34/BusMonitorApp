@@ -26,9 +26,7 @@ export default function DetalleScreen() {
       <View style={styles.topBox}>
         <Ionicons name="document-text-outline" size={34} color="#fff" />
         <Text style={styles.topTitle}>Detalles del monitoreo</Text>
-        <Text style={styles.topSubtitle}>
-          Información técnica del conteo y ubicación
-        </Text>
+        <Text style={styles.topSubtitle}>Información</Text>
       </View>
 
       <InfoCard title="Detalle del monitoreo">
@@ -36,7 +34,7 @@ export default function DetalleScreen() {
           <MaterialCommunityIcons
             name="card-account-details-outline"
             size={22}
-            color="#2563eb"
+            color="#43eb25"
           />
           <Text style={styles.text}>ID del bus: {busData.busId}</Text>
         </View>
@@ -45,7 +43,7 @@ export default function DetalleScreen() {
           <MaterialCommunityIcons
             name="login-variant"
             size={22}
-            color="#2563eb"
+            color="#687207"
           />
           <Text style={styles.text}>
             Entradas detectadas: {busData.entries}
@@ -62,14 +60,14 @@ export default function DetalleScreen() {
         </View>
 
         <View style={styles.infoRow}>
-          <Ionicons name="time-outline" size={22} color="#2563eb" />
+          <Ionicons name="time-outline" size={22} color="#d125eb" />
           <Text style={styles.text}>
             Última actualización: {busData.lastUpdate}
           </Text>
         </View>
 
         <View style={styles.infoRow}>
-          <Ionicons name="location-outline" size={22} color="#2563eb" />
+          <Ionicons name="location-outline" size={22} color="#25c0eb" />
           <Text style={styles.text}>
             Coordenadas: {busData.latitude.toFixed(5)},{" "}
             {busData.longitude.toFixed(5)}

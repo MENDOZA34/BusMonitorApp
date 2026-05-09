@@ -26,9 +26,7 @@ export default function RutaScreen() {
       <View style={styles.topBox}>
         <Ionicons name="navigate-circle-outline" size={36} color="#fff" />
         <Text style={styles.topTitle}>Información de la ruta</Text>
-        <Text style={styles.topSubtitle}>
-          Consulta la ruta configurada y sus paradas
-        </Text>
+        <Text style={styles.topSubtitle}>Consulta la ruta y su parada</Text>
       </View>
 
       <InfoCard title="Ruta actual">

@@ -43,7 +43,7 @@ export default function EstadoScreen() {
           <MaterialCommunityIcons
             name="account-group-outline"
             size={22}
-            color="#2563eb"
+            color="#976d0a"
           />
           <Text style={styles.text}>
             Pasajeros actuales: {busData.currentPassengers}
@@ -51,7 +51,7 @@ export default function EstadoScreen() {
         </View>
 
         <View style={styles.infoRow}>
-          <MaterialCommunityIcons name="bus-school" size={22} color="#2563eb" />
+          <MaterialCommunityIcons name="bus-school" size={22} color="#25b6eb" />
           <Text style={styles.text}>Capacidad máxima: {busData.capacity}</Text>
         </View>
 
@@ -59,7 +59,7 @@ export default function EstadoScreen() {
           <MaterialCommunityIcons
             name="seat-passenger"
             size={22}
-            color="#2563eb"
+            color="#c025eb"
           />
           <Text style={styles.text}>
             Espacios disponibles: {availableSeats}
@@ -70,7 +70,7 @@ export default function EstadoScreen() {
           <MaterialCommunityIcons
             name="chart-donut"
             size={22}
-            color="#2563eb"
+            color="#eb254d"
           />
           <Text style={styles.text}>Ocupación: {percent}%</Text>
         </View>
