@@ -56,7 +56,7 @@ export default function DetalleScreen() {
           <MaterialCommunityIcons
             name="logout-variant"
             size={22}
-            color="#2563eb"
+            color="#eb2525"
           />
           <Text style={styles.text}>Salidas detectadas: {busData.exits}</Text>
         </View>
@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   topBox: {
-    backgroundColor: "#0b1736",
+    backgroundColor: "#360b15",
     borderRadius: 24,
     padding: 20,
     marginBottom: 18,
