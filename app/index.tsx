@@ -118,6 +118,14 @@ export default function HomeScreen() {
 
       <TouchableOpacity
         style={styles.button}
+        onPress={() => router.push("/seguimiento" as any)}
+      >
+        <MaterialCommunityIcons name="map-marker-path" size={22} color="#fff" />
+        <Text style={styles.buttonText}>Ver seguimiento</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        style={styles.button}
         onPress={() => router.push("/ruta" as any)}
       >
         <Ionicons name="navigate-outline" size={22} color="#fff" />
