@@ -7,7 +7,7 @@ import {
     StyleSheet,
     Text,
     TouchableOpacity,
-    View
+    View,
 } from "react-native";
 import Svg, { Circle, Path, Rect } from "react-native-svg";
 
@@ -94,10 +94,10 @@ function distanciaMetros(a: Punto, b: Punto) {
 }
 
 function textoDistancia(metros: number) {
-  if (!Number.isFinite(metros)) return "Esperando ubicación";
+  if (!Number.isFinite(metros)) return "Esperando";
 
   if (metros < 1000) {
-    return `${Math.round(metros)} metros`;
+    return `${Math.round(metros)} m`;
   }
 
   return `${(metros / 1000).toFixed(2)} km`;
@@ -226,8 +226,7 @@ export default function SeguimientoScreen() {
       setEstadoBus(estadoData);
       setParadas(Array.isArray(rutaData.paradas) ? rutaData.paradas : []);
       setError("");
-    } catch (e) {
-      console.error(e);
+    } catch {
       setError(
         "No se pudieron cargar los datos. Verifica que Railway esté encendido.",
       );
@@ -245,17 +244,38 @@ export default function SeguimientoScreen() {
         return;
       }
 
+      const serviciosActivos = await Location.hasServicesEnabledAsync();
+
+      if (!serviciosActivos) {
+        setError(
+          "Activa la ubicación/GPS del teléfono para calcular la distancia.",
+        );
+        return;
+      }
+
+      const ultimaUbicacion = await Location.getLastKnownPositionAsync();
+
+      if (ultimaUbicacion) {
+        setUbicacionUsuario({
+          latitud: ultimaUbicacion.coords.latitude,
+          longitud: ultimaUbicacion.coords.longitude,
+        });
+      }
+
       const ubicacion = await Location.getCurrentPositionAsync({
-        accuracy: Location.Accuracy.High,
+        accuracy: Location.Accuracy.Balanced,
       });
 
       setUbicacionUsuario({
         latitud: ubicacion.coords.latitude,
         longitud: ubicacion.coords.longitude,
       });
-    } catch (e) {
-      console.error(e);
-      setError("No se pudo obtener la ubicación del teléfono.");
+
+      setError("");
+    } catch {
+      setError(
+        "No se pudo obtener la ubicación del teléfono. Activa el GPS o prueba en un lugar abierto.",
+      );
     }
   };
 
@@ -452,6 +472,23 @@ export default function SeguimientoScreen() {
 
           {datos && (
             <>
+              <View
+                style={[
+                  styles.distanceBubble,
+                  {
+                    left: Math.max(
+                      8,
+                      Math.min(datos.puntoBus.x - 42, SVG_WIDTH - 92),
+                    ),
+                    top: Math.max(8, datos.puntoBus.y - 58),
+                  },
+                ]}
+              >
+                <Text style={styles.distanceBubbleText}>
+                  {textoDistancia(datos.distancia)}
+                </Text>
+              </View>
+
               <View
                 style={[
                   styles.iconFloating,
@@ -671,6 +708,25 @@ const styles = StyleSheet.create({
     height: SVG_HEIGHT,
     position: "relative",
   },
+  distanceBubble: {
+    position: "absolute",
+    backgroundColor: "#0f172a",
+    paddingHorizontal: 10,
+    paddingVertical: 6,
+    borderRadius: 14,
+    minWidth: 84,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOpacity: 0.18,
+    shadowRadius: 6,
+    elevation: 5,
+    zIndex: 10,
+  },
+  distanceBubbleText: {
+    color: "#ffffff",
+    fontSize: 12,
+    fontWeight: "900",
+  },
   iconFloating: {
     position: "absolute",
     width: 34,
@@ -678,6 +734,7 @@ const styles = StyleSheet.create({
     borderRadius: 17,
     justifyContent: "center",
     alignItems: "center",
+    zIndex: 8,
   },
   routeLabels: {
     width: "100%",
