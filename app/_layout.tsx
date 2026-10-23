@@ -21,6 +21,7 @@ export default function RootLayout() {
       <Stack.Screen name="mapa" options={{ title: "Mapa del bus" }} />
       <Stack.Screen name="ruta" options={{ title: "Ruta del bus" }} />
       <Stack.Screen name="estado" options={{ title: "Estado del bus" }} />
+      <Stack.Screen name="admin" options={{ title: "Administracion" }} />
       <Stack.Screen
         name="detalle"
         options={{ title: "Detalles del monitoreo" }}

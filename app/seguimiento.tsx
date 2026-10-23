@@ -10,8 +10,7 @@ import {
     View,
 } from "react-native";
 import Svg, { Circle, Path, Rect } from "react-native-svg";
-
-const BASE_URL = "https://bus-api-production.up.railway.app";
+import { BASE_URL } from "../services/apiConfig";
 
 type BusEstado = {
   bus_id: number;

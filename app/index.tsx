@@ -26,6 +26,10 @@ export default function HomeScreen() {
       <View style={styles.loadingContainer}>
         <MaterialCommunityIcons name="bus-clock" size={52} color="#1d4ed8" />
         <Text style={styles.loadingText}>Cargando datos del bus...</Text>
+        <TouchableOpacity style={styles.button} onPress={() => router.push("/admin" as any)}>
+          <Ionicons name="lock-closed-outline" size={22} color="#fff" />
+          <Text style={styles.buttonText}>Administracion</Text>
+        </TouchableOpacity>
       </View>
     );
   }
@@ -107,6 +111,11 @@ export default function HomeScreen() {
           />
         </View>
       </InfoCard>
+
+      <TouchableOpacity style={styles.button} onPress={() => router.push("/admin" as any)}>
+        <Ionicons name="lock-closed-outline" size={22} color="#fff" />
+        <Text style={styles.buttonText}>Administracion</Text>
+      </TouchableOpacity>
 
       <TouchableOpacity
         style={styles.button}
