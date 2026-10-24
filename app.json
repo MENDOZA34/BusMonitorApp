@@ -2,6 +2,7 @@
   "expo": {
     "name": "BusMonitorApp",
     "slug": "BusMonitorApp",
+    "owner": "botem",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -50,7 +51,7 @@
     "extra": {
       "router": {},
       "eas": {
-        "projectId": "9d5e7e76-6743-4f04-9736-2d0086ca671f"
+        "projectId": "9de5b7e1-fbdd-4029-adc9-ee366dec8752"
       }
     }
   }
